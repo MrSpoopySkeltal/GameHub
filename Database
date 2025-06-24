@@ -1,3 +1,4 @@
+CREATE DATABASE storefront;
 USE storefront;
 
 CREATE TABLE users (
