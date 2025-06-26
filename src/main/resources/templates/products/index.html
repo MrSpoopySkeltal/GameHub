@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${pageTitle}">Products - GameHub</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div th:replace="fragments/header :: header"></div>
+    
+    <main class="products-main">
+        <div class="container">
+            <div class="products-header">
+                <h1>Gaming Products</h1>
+                <p>Discover the latest games, consoles, and accessories</p>
+            </div>
+            
+            <div class="products-filters">
+                <div class="filter-group">
+                    <label>Category:</label>
+                    <select class="filter-select">
+                        <option value="">All Categories</option>
+                        <option value="games">Games</option>
+                        <option value="consoles">Consoles</option>
+                        <option value="accessories">Accessories</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Platform:</label>
+                    <select class="filter-select">
+                        <option value="">All Platforms</option>
+                        <option value="ps5">PlayStation 5</option>
+                        <option value="xbox">Xbox Series X/S</option>
+                        <option value="switch">Nintendo Switch</option>
+                        <option value="pc">PC</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Sort by:</label>
+                    <select class="filter-select">
+                        <option value="newest">Newest</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="popular">Most Popular</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Sample Product Cards -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>Latest Action Game</h3>
+                        <p class="product-platform">PlayStation 5, Xbox Series X</p>
+                        <p class="product-price">$59.99</p>
+                        <button class="btn btn-primary">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>Gaming Console</h3>
+                        <p class="product-platform">Next-Gen Console</p>
+                        <p class="product-price">$499.99</p>
+                        <button class="btn btn-primary">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>Gaming Headset</h3>
+                        <p class="product-platform">Universal Compatibility</p>
+                        <p class="product-price">$79.99</p>
+                        <button class="btn btn-primary">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

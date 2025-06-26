@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thank You</title>
+	<meta http-equiv="refresh" content="5;url=/login" />
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+    <main class="auth-main">
+        <div class="container">
+            <div class="auth-card">
+                <h2>Thank you for registering!</h2>
+                <p>You’ll be redirected to the login page in 5 seconds...</p>
+                <p>If not, <a th:href="@{/login}">click here</a>.</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

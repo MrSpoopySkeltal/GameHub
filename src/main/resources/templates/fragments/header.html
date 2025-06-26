@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div th:fragment="header">
+        <header class="header">
+            <div class="container">
+                <div class="nav-brand">
+                    <div class="logo">
+                        <i class="fas fa-gamepad"></i>
+                        <span>GameHub</span>
+                    </div>
+                    <p class="tagline">Your Ultimate Gaming Destination</p>
+                </div>
+                
+                <nav class="main-nav">
+                    <ul class="nav-menu">
+                        <li><a th:href="@{/}" class="nav-link">Home</a></li>
+                        <li><a th:href="@{/products}" class="nav-link">Products</a></li>
+                        <li><a th:href="@{/login}" class="nav-link">Login</a></li>
+                        <li><a th:href="@{/register}" class="nav-link btn-register">Register</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="user-profile">
+                    <div class="profile-icon">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+</body>
+</html>
