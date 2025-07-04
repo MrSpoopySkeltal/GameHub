@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thank You - GameHub</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"></div>
+
+<main class="auth-main">
+    <div class="container">
+        <div class="auth-container">
+            <div class="auth-card" style="text-align: center;">
+                <i class="fas fa-check-circle" style="font-size: 48px; color: #4CAF50;"></i>
+                <h2>Product Created!</h2>
+                <p>Your product was successfully created and will appear in the system shortly.</p>
+                <a th:href="@{/}" class="btn btn-primary">Return to Home</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>

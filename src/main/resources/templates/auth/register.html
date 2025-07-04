@@ -4,10 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:text="${pageTitle}">Register - GameHub</title>
+
+    <!-- Main Styles -->
     <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" th:href="@{/css/slideshow.css}">
+
+    <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
+
+    <!-- Slideshow Background -->
+    <div class="slideshow-background">
+        <img src="/images/console1.jpg" alt="Console 1">
+        <img src="/images/console2.jpg" alt="Console 2">
+        <img src="/images/console3.jpg" alt="Console 3">
+    </div>
+
     <div th:replace="fragments/header :: header"></div>
 
     <main class="auth-main">
@@ -28,19 +41,20 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="firstName">First Name</label>
-                                <input type="text" id="firstName" th:field="*{firstName}" />
+                                <input type="text" id="firstName" th:field="*{firstName}" required />
                                 <div class="error" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
                             </div>
+
                             <div class="form-group">
                                 <label for="lastName">Last Name</label>
-                                <input type="text" id="lastName" th:field="*{lastName}" />
+                                <input type="text" id="lastName" th:field="*{lastName}" required />
                                 <div class="error" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="email">Email Address</label>
-                            <input type="email" id="email" th:field="*{email}" />
+                            <input type="email" id="email" th:field="*{email}" required />
                             <div class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
                         </div>
 
@@ -52,25 +66,23 @@
 
                         <div class="form-group">
                             <label for="username">Username</label>
-                            <input type="text" id="username" th:field="*{username}" />
+                            <input type="text" id="username" th:field="*{username}" required />
                             <div class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
                         </div>
 
-						<div class="form-group">
-						    <label for="password">Password</label>
-						    <input type="password" id="password" th:field="*{password}" />
-						    <small class="form-text text-muted">
-						        Password must be 8–12 characters, and include at least one number and one special character.
-						    </small>
-						    <div class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
-						</div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" th:field="*{password}" required />
+                            <small class="form-text text-muted">
+                                Password must be 8–12 characters and include at least one number and one special character.
+                            </small>
+                            <div class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+                        </div>
 
                         <div class="form-group">
                             <label for="confirmPassword">Confirm Password</label>
-                            <input type="password" id="confirmPassword" th:field="*{confirmPassword}" />
+                            <input type="password" id="confirmPassword" th:field="*{confirmPassword}" required />
                             <div class="error" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}"></div>
-
-                            <!-- Global match error directly under confirmPassword too -->
                             <div class="error" th:if="${#fields.hasGlobalErrors()}" th:errors="*{__all__}"></div>
                         </div>
 
@@ -91,6 +103,8 @@
             </div>
         </div>
     </main>
+
+    <!-- Slideshow script -->
+    <script th:src="@{/js/slideshow.js}"></script>
 </body>
 </html>
-

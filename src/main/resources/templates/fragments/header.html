@@ -19,12 +19,16 @@
                     <ul class="nav-menu">
                         <li><a th:href="@{/}" class="nav-link">Home</a></li>
                         <li><a th:href="@{/products}" class="nav-link">Products</a></li>
+                        <li><a th:href="@{/product/create}" class="nav-link">Create Product</a></li>
                         <li><a th:href="@{/login}" class="nav-link">Login</a></li>
                         <li><a th:href="@{/register}" class="nav-link btn-register">Register</a></li>
                     </ul>
                 </nav>
                 
                 <div class="user-profile">
+                    <div class="theme-toggle" id="themeToggle" title="Toggle light/dark mode">
+                        <i class="fas fa-sun"></i>
+                    </div>
                     <div class="profile-icon">
                         <i class="fas fa-user-circle"></i>
                     </div>
