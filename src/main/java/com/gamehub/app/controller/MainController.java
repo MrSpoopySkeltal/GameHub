@@ -20,12 +20,6 @@ public class MainController {
         return "index";
     }
     
-    @GetMapping("/login")
-    public String login(Model model) {
-        model.addAttribute("pageTitle", "Login - GameHub");
-        return "auth/login";
-    }
-    
     
     @GetMapping("/register")
     public String showRegisterForm(Model model) {
