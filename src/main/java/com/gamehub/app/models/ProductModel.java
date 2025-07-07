@@ -1,37 +1,23 @@
 package com.gamehub.app.models;
 
 public class ProductModel {
-    private String name;
-    private String description;
-    private double price;
-    private String category;
+    private String username;
+    private String password;
 
-    // Getters and Setters
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
+    // Getters & Setters
+    public String getUsername() {
+        return username;
     }
 
-    public String getDescription() {
-        return description;
-    }
-    public void setDescription(String description) {
-        this.description = description;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public double getPrice() {
-        return price;
-    }
-    public void setPrice(double price) {
-        this.price = price;
+    public String getPassword() {
+        return password;
     }
 
-    public String getCategory() {
-        return category;
-    }
-    public void setCategory(String category) {
-        this.category = category;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
