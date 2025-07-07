@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:text="${pageTitle}">Login - GameHub</title>
     <link rel="stylesheet" th:href="@{/css/main.css}">
+	<link rel="stylesheet" th:href="@{/css/darkmode.css}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <div th:replace="fragments/header :: header"></div>
+	<script th:src="@{/js/darkmode.js}"></script>
     
     <main class="auth-main">
         <div class="container">
@@ -20,27 +22,29 @@
                         <p>Sign in to access your gaming world</p>
                     </div>
                     
-                    <form class="auth-form" method="post" th:action="@{/login}">
-                        <div class="form-group">
-                            <label for="username">Username or Email</label>
-                            <input type="text" id="username" name="username" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" id="password" name="password" required>
-                        </div>
-                        
-                        <div class="form-options">
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="remember">
-                                <span>Remember me</span>
-                            </label>
-                            <a href="#" class="forgot-link">Forgot password?</a>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary btn-full">Sign In</button>
-                    </form>
+					<form class="auth-form" method="post" th:action="@{/login}" th:object="${user}">
+					    <div class="form-group">
+					        <label for="username">Username or Email</label>
+					        <input type="text" id="username" th:field="*{username}" placeholder="Enter your username or email" required>
+					        <span class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Invalid username</span>
+					    </div>
+					    
+					    <div class="form-group">
+					        <label for="password">Password</label>
+					        <input type="password" id="password" th:field="*{password}" placeholder="Enter your password" required>
+					        <span class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Invalid password</span>
+					    </div>
+					    
+					    <div class="form-options">
+					        <label class="checkbox-label">
+					            <input type="checkbox" name="remember">
+					            <span>Remember me</span>
+					        </label>
+					        <a href="#" class="forgot-link">Forgot password?</a>
+					    </div>
+					    
+					    <button type="submit" class="btn btn-primary btn-full">Sign In</button>
+					</form>
                     
                     <div class="auth-footer">
                         <p>Don't have an account? <a th:href="@{/register}">Create one here</a></p>

@@ -1,23 +1,48 @@
 package com.gamehub.app.models;
 
+import jakarta.validation.constraints.*;
+
 public class ProductModel {
-    private String username;
-    private String password;
 
-    // Getters & Setters
-    public String getUsername() {
-        return username;
+    @NotBlank(message = "Name is required")
+    private String name;
+
+    @NotBlank(message = "Description is required")
+    private String description;
+
+    @NotNull(message = "Price is required")
+    @DecimalMin(value = "0.01", message = "Price must be greater than 0")
+    private Double price; 
+
+    @NotBlank(message = "Category is required")
+    private String category;
+
+    // Getters and Setters
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getPassword() {
-        return password;
+    public Double getPrice() {
+        return price;
+    }
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public String getCategory() {
+        return category;
+    }
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

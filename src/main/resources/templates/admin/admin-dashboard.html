@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard - GameHub</title>
+</head>
+<body>
+    <h1>Welcome to the Admin Dashboard, Coque!</h1>
+
+    <nav>
+        <ul>
+            <li><a th:href="@{/products}">View Products</a></li>
+            <li><a th:href="@{/product/create}">Add Product</a></li>
+            <li><a th:href="@{/logout}">Logout</a></li>
+        </ul>
+    </nav>
+
+    <p>This is your admin-only space. You can manage products and perform other admin tasks here.</p>
+</body>
+</html>

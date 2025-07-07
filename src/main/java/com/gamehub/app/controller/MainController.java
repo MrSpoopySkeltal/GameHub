@@ -1,8 +1,14 @@
 package com.gamehub.app.controller;
+
+import org.springframework.validation.BindingResult;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import com.gamehub.dto.UserDTO;
+import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 
 @Controller
@@ -14,19 +20,13 @@ public class MainController {
         return "index";
     }
     
-    @GetMapping("/login-view")
-    public String login(Model model) {
-        model.addAttribute("pageTitle", "Login - GameHub");
-        return "auth/login";
-    }
     
-    
-    /* @GetMapping("/register")
+    @GetMapping("/register")
     public String showRegisterForm(Model model) {
         model.addAttribute("user", new UserDTO()); 
         model.addAttribute("pageTitle", "Register - GameHub");
         return "auth/register";
-    } */
+    }
 
     
     @GetMapping("/products")
@@ -43,7 +43,7 @@ public class MainController {
         return "admin/user-management";
     }
     
-    /* @PostMapping("/register")
+    @PostMapping("/register")
     public String processRegistration(
             @Valid @ModelAttribute("user") UserDTO userDTO,
             BindingResult result,
@@ -57,6 +57,6 @@ public class MainController {
         // Simulate a successful registration (DB part comes later)
         return "auth/thankyou";
 
-    } */
+    }
 
 }
