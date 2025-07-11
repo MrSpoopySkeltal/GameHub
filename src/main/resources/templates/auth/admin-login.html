@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login - GameHub</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"></div>
+
+<main class="auth-main">
+    <div class="container">
+        <div class="auth-container">
+            <div class="auth-card">
+
+                <div style="text-align: center; margin-bottom: 10px;">
+                    <i class="fas fa-user-shield" style="font-size: 40px; color: #007bff;"></i>
+                </div>
+
+                <div class="auth-header">
+                    <h2>Admin Login</h2>
+                    <p>Access to admin-only tools</p>
+                </div>
+
+                <form th:action="@{/admin/login}" th:object="${admin}" method="post">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" th:field="*{username}" placeholder="Admin username" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" th:field="*{password}" placeholder="Password" required />
+                    </div>
+
+                    <div class="error" th:if="${errorMessage}" th:text="${errorMessage}" style="color: red;"></div>
+
+                    <button type="submit" class="btn btn-primary btn-full">Login as Admin</button>
+                </form>
+
+                <div style="text-align: center; margin-top: 10px;">
+                    <a th:href="@{/login}" style="color: #007bff;">Back to user login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - GameHub</title>
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+
+    <!-- Font Awesome Icons -->
+	<link rel="stylesheet"
+	      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css"
+	      integrity="sha384-+ptQp8x9Z4piIjgmy6v2GmH0gGv2a4L3Kq8b9M8JqJ5iZUbEOqEqRwMaqv5vMnPR"
+	      crossorigin="anonymous">
+
+</head>
+<body>
+
+<!-- Header/Navbar -->
+<header class="header">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+        <div class="nav-brand">
+            <div class="logo">
+                <i class="fas fa-gamepad"></i>
+                <span><a th:href="@{/}" class="nav-link">GameHub</a></span>
+            </div>
+        </div>
+
+        <nav class="main-nav">
+            <ul class="nav-menu" style="display: flex; align-items: center; gap: 20px; list-style: none; margin: 0;">
+                <li><a th:href="@{/}" class="nav-link">Home</a></li>
+                <li><a th:href="@{/products}" class="nav-link">Products</a></li>
+
+                <!-- Profile Dropdown -->
+                <li class="profile-dropdown" style="position: relative;">
+					<a href="javascript:void(0)" class="nav-link" onclick="toggleDropdown()" title="Profile">
+					    <span style="font-size: 22px;">👤</span>
+					</a>
+                        <i class="fa-solid fa-user" style="font-size: 22px;"></i>
+                    </a>
+                    <ul id="profileMenu" style="
+                        display: none;
+                        position: absolute;
+                        right: 0;
+                        top: 30px;
+                        background: white;
+                        border: 1px solid #ccc;
+                        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                        list-style: none;
+                        padding: 10px;
+                        min-width: 150px;
+                        z-index: 1000;
+                    ">
+                        <li><a th:href="@{/user/dashboard}" class="nav-link">Dashboard</a></li>
+                        <li><a th:href="@{/user/edit-profile}" class="nav-link">Edit Profile</a></li>
+                        <li><a th:href="@{/logout}" class="nav-link">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Main Checkout Content -->
+<main class="container">
+    <h2>Checkout</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Product</th>
+            <th>Qty</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Gaming Headset</td>
+            <td>1</td>
+            <td>$59.99</td>
+            <td>$59.99</td>
+        </tr>
+        <tr>
+            <td>Gamepad</td>
+            <td>2</td>
+            <td>$29.99</td>
+            <td>$59.98</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="3"><strong>Total</strong></td>
+            <td><strong>$119.97</strong></td>
+        </tr>
+        </tfoot>
+    </table>
+
+    <button class="btn btn-success">Place Order</button>
+</main>
+
+<!-- Dropdown Toggle Script -->
+<script>
+    function toggleDropdown() {
+        const menu = document.getElementById("profileMenu");
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
+    }
+
+    document.addEventListener('click', function(event) {
+        const dropdown = document.getElementById('profileMenu');
+        const trigger = document.querySelector('.profile-dropdown > a');
+        if (!dropdown.contains(event.target) && !trigger.contains(event.target)) {
+            dropdown.style.display = 'none';
+        }
+    });
+</script>
+
+</body>
+</html>
+

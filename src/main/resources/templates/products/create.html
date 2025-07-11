@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Product - GameHub</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"></div>
+
+<main class="auth-main">
+    <div class="container">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h2>Create a New Product</h2>
+                    <p>Fill out the form below to add your product</p>
+                </div>
+
+                <form th:action="@{/product/create}" th:object="${product}" method="post">
+                    
+                    <!-- Optional global error display -->
+                    <div class="error" th:if="${#fields.hasGlobalErrors()}" th:errors="*{global}"></div>
+
+                    <div class="form-group">
+                        <label for="name">Product Name</label>
+                        <input type="text" id="name" th:field="*{name}" />
+                        <div class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" th:field="*{description}" rows="4"></textarea>
+                        <div class="error" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="number" id="price" th:field="*{price}" step="0.01" />
+                        <div class="error" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <input type="text" id="category" th:field="*{category}" />
+                        <div class="error" th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full">Create Product</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>

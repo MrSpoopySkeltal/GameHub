@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Products - GameHub</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"></div>
+
+<main class="container">
+    <h2>Manage Products</h2>
+
+    <div class="actions">
+        <a th:href="@{/product/create}" class="btn btn-primary">Add New Product</a>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Example mock product rows -->
+            <tr>
+                <td>Gaming Chair</td>
+                <td>Comfortable ergonomic chair</td>
+                <td>$149.99</td>
+                <td>Accessories</td>
+                <td>
+                    <a th:href="@{/product/edit/1}" class="btn btn-sm btn-warning">Edit</a>
+                    <a th:href="@{/product/delete/1}" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+            <tr>
+                <td>RGB Keyboard</td>
+                <td>Mechanical keyboard with lights</td>
+                <td>$79.99</td>
+                <td>Peripherals</td>
+                <td>
+                    <a th:href="@{/product/edit/2}" class="btn btn-sm btn-warning">Edit</a>
+                    <a th:href="@{/product/delete/2}" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Dashboard - GameHub</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"></div>
+
+<main class="container">
+    <h2>User Dashboard</h2>
+
+    <div class="dashboard-grid">
+
+        <!-- Personal Profile Section -->
+        <div class="card">
+            <h3>Personal Profile</h3>
+            <img src="/images/default-avatar.png" alt="Profile Picture" style="height: 100px;">
+            <p>Name: John Doe</p>
+            <p>Email: johndoe@example.com</p>
+            <a th:href="@{/user/edit-profile}" class="btn btn-sm btn-primary">Edit</a>
+        </div>
+
+        <!-- Product Catalog Section -->
+        <div class="card">
+            <h3>Product Catalog</h3>
+            <p>Browse all available games and accessories.</p>
+            <a th:href="@{/products}" class="btn btn-sm btn-secondary">View Products</a>
+        </div>
+
+        <!-- Cart Section -->
+        <div class="card">
+            <h3>Your Cart</h3>
+            <p>Checkout your selected items.</p>
+            <a th:href="@{/checkout}" class="btn btn-sm btn-success">Go to Checkout</a>
+        </div>
+
+    </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders - GameHub</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"></div>
+
+<main class="container">
+    <h2>View & Manage Orders</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Order #</th>
+                <th>Customer</th>
+                <th>Product</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1001</td>
+                <td>Alice Smith</td>
+                <td>Gaming Chair</td>
+                <td>$149.99</td>
+                <td>Pending</td>
+                <td><button class="btn btn-sm btn-success">Mark as Shipped</button></td>
+            </tr>
+            <tr>
+                <td>1002</td>
+                <td>Bob Johnson</td>
+                <td>RGB Keyboard</td>
+                <td>$79.99</td>
+                <td>Shipped</td>
+                <td><button class="btn btn-sm" disabled>Shipped</button></td>
+            </tr>
+        </tbody>
+    </table>
+</main>
+
+</body>
+</html>
